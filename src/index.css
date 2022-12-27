@@ -10,27 +10,52 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background:url(/src/assets/Images/nublado.gif) no-repeat;
-  background-size: cover;
+
+}
+.load{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-color: lightskyblue;
+  animation: Circule infinite;
+  
+ 
 }
 
+ 
+@keyframes Circule {
+  0%{transform:rotate(0deg);}
+  20%{transform:rotate(120deg);}
+  80%{transform:rotate(240deg);}
+  100%{transform:rotate(360deg);}
+}
+.hide{
+  display: none;
+}
 .App{
   width:450px;
   height: 70vh;
   color: rgb(119, 46, 253);
-  background: rgb(206, 209, 210);
+  background: rgba(206, 209, 210,0.5)  ;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   border-radius: 20px;
+  box-shadow: 1px 2px 25px whitesmoke;
+}
+h2{
+  font-size: 20px;
 }
 .description{
   display: flex;
   align-items: center;
   width: 100%;
   
+}
+div > .time{
+  text-align: center;
 }
 .description > img{
   width: 50px;
@@ -73,10 +98,17 @@ body{
 .App button{
   background-color:rgb(119, 46, 253) ;
   border: none;
+  border-radius: 5px;
+  box-shadow: 2px 1px 5px black;
   width: 150px;
   height: 30px;
   color: white;
   font-size: 14px;
   font-weight: bold;
   
+}
+
+.App button:hover{
+  scale: 105%;
+  box-shadow: 2px 1px 5px white;
 }

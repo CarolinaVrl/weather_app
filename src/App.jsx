@@ -4,10 +4,27 @@ import './App.css'
 import axios from 'axios'
 
 function App() {
+
   const [wheather, setWheater] = useState({})
   const [isCentigrades, setIsCentigrades] = useState(true)
+  const icon = wheather.weather?.[0].icon
+    if (icon?.includes("d")){
+      if(((icon?.includes("1"))|| (icon.includes("2")))){
+      document.body.style= `background: url(src/assets/images/sunny.gif)no-repeat; background-size:cover;`
+       }else{ document.body.style= `background: url(src/assets/images/rain.gif)no-repeat; background-size:cover;`}
+ 
+     
+    }else{
+      document.body.style =`background: url(src/assets/images/night.gif)no-repeat; background-size:cover;`
+    }
+  const [status, setStatus] = useState(true)
+  
   useEffect (() => {
-    
+    const timer = setTimeout(() => setStatus(false), 5000);
+   
+       
+         
+       
     
     function success(pos) {
       const crd = pos.coords;
@@ -33,17 +50,18 @@ function App() {
  const changeUnits = () =>{
   setIsCentigrades(!isCentigrades)
  }
+ 
+ 
 
  
 
   return (
     <div className="App">
+      
+      <img className={status?'load':'hide'}  src="/src/assets/Images/sun.png" alt="" />
       <>
-     
-      
-      
-      
-      <h1>Wheather App</h1>
+              
+       <h1>Weather App</h1>
       <h2>{wheather.name}, {wheather.sys?.country} </h2>
       
       <div className='description'>
@@ -51,11 +69,11 @@ function App() {
           <img src={`http://openweathermap.org/img/wn/${wheather.weather?.[0].icon}@2x.png`} alt="" />
         </div>
         <div>
-         <h3>"{wheather.weather?.[0].description}"</h3>
-          <h3><i class="fa-solid fa-wind"></i>Wind Speed: <span className='text'> {wheather.wind?.speed}  m/s </span>  </h3>
+         <h3 className='time'>"{wheather.weather?.[0].description}"</h3>
+          <h3><i className="fa-solid fa-wind"></i>Wind Speed: <span className='text'> {wheather.wind?.speed}  m/s </span>  </h3>
           
-          <h3> <i class="fa-solid fa-cloud"></i> Clouds: <span className='text'> {wheather.clouds?.all}% </span></h3>
-          <h3><i class="fa-solid fa-temperature-half"></i>Pressure: <span className='text'>{wheather.main?.pressure} mb </span></h3>
+          <h3> <i className="fa-solid fa-cloud"></i> Clouds: <span className='text'> {wheather.clouds?.all}% </span></h3>
+          <h3><i className="fa-solid fa-temperature-half"></i>Pressure: <span className='text'>{wheather.main?.pressure} mb </span></h3>
           
         </div>
         
