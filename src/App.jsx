@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import axios from 'axios'
-import Imports from './assets/Javascript/Imports'
+import arrays from './assets/Javascript/arrays'
 
 function App() {
 
