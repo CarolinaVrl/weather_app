@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import axios from 'axios'
+import Imports from './assets/Javascript/Imports'
 
 function App() {
 
@@ -10,8 +11,8 @@ function App() {
   const icon = wheather.weather?.[0].icon
     if (icon?.includes("d")){
       if(((icon?.includes("1"))|| (icon.includes("2")))){
-      document.body.style= `background: url(src/assets/images/sunny.gif)no-repeat; background-size:cover;`
-       }else{ document.body.style= `background: url(src/assets/images/rain.gif)no-repeat; background-size:cover;`}
+      document.body.style= `background: url(${sunny})no-repeat; background-size:cover;`
+       }else{ document.body.style= `background: url(${rain})no-repeat; background-size:cover;`}
  
      
     }else{
@@ -20,9 +21,8 @@ function App() {
   const [status, setStatus] = useState(true)
   
   useEffect (() => {
-    const timer = setTimeout(() => setStatus(false), 5000);
-   
-       
+    const timer = setTimeout(() => setStatus(false), 3000);
+     
          
        
     
